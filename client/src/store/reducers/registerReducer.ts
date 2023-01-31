@@ -1,15 +1,18 @@
-import { UserAction, UserActionTypes, UserState } from '../../types/register';
+import { RegisterAction, RegisterActionTypes, RegisterState } from '../../types/register';
 
-const initialState: UserState = {
-   password:'',
-   username:'',
-   email:'',
-   error:null
+const initialState: RegisterState = {
+  user:[],
+  error:''
 
 };
-export const userReducer = (
+export const registerReducer = (
   state = initialState,
-  action: UserAction
-): UserState => {
- 
+  action: RegisterAction
+): RegisterState => {
+ switch(action.type){
+  case RegisterActionTypes.REGISTER_SUCCESS:
+    return {error:'', user:action.payload}
+  case RegisterActionTypes.REGISTER_ERROR:
+    return {...state, error:action.payload}
+ }
   }

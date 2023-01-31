@@ -1,18 +1,18 @@
 import { Dispatch } from 'react';
-import { UserAction, UserActionTypes} from '../../types/register';
+import { RegisterAction, RegisterActionTypes } from '../../types/register';
 import axios from 'axios';
 
-export const fetchTracks = () => {
-  return async (dispatch: Dispatch<UserAction>) => {
+export const register = () => {
+  return async (dispatch: Dispatch<RegisterAction>) => {
     try {
-      const responce = await axios.get('http://localhost:5000/api/auth/');
+      const response = await axios.post('http://localhost:5000/api/auth/register');
       dispatch({
-        type: UserActionTypes.FETCH_USER,
-        payload: responce.data,
+        type: RegisterActionTypes.REGISTER_SUCCESS,
+        payload: response.data,
       });
     } catch (e) {
       dispatch({
-        type: UserActionTypes.FETCH_USER_ERROR,
+        type: RegisterActionTypes.REGISTER_ERROR,
         payload: 'Произошла ошибка при загрузке',
       });
     }
