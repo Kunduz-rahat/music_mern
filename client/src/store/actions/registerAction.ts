@@ -1,11 +1,11 @@
 import { Dispatch } from 'react';
-import { UserAction, UserActionTypes} from '../../types/user';
+import { UserAction, UserActionTypes} from '../../types/register';
 import axios from 'axios';
 
 export const fetchTracks = () => {
-  return async (dispatch: Dispatch<TrackAction>) => {
+  return async (dispatch: Dispatch<UserAction>) => {
     try {
-      const responce = await axios.get('http://localhost:5000/tracks');
+      const responce = await axios.get('http://localhost:5000/api/auth/');
       dispatch({
         type: UserActionTypes.FETCH_USER,
         payload: responce.data,

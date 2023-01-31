@@ -59,8 +59,8 @@ export const register=async(req, res)=>{
 
 export const login = async (req, res)=>{
 	try{
-		const { username, password } = req.body
-		const user = await User.findOne({username})
+		const { email, password } = req.body
+		const user = await User.findOne({email})
 		if(!user){
 			return res.json({
 				message:"Такого пользователя не существует"
