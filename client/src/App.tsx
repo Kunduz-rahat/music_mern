@@ -10,7 +10,7 @@ function App() {
     <Layout>
   <Routes >
        <Route path='/' element={<Main/>}/>
-     <Route path='register' element={<Register/>}/>
+     {/* <Route path='register' element={<Register/>}/> */}
     </Routes>
     </Layout>
   

@@ -5,10 +5,13 @@ import axios from 'axios';
 export const register = () => {
   return async (dispatch: Dispatch<RegisterAction>) => {
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/register');
+      const {data} = await axios.post('http://localhost:5000/api/auth/register');
+      if(data.token){
+        window.localStorage.setItem('token', data.token)
+      }
       dispatch({
         type: RegisterActionTypes.REGISTER_SUCCESS,
-        payload: response.data,
+        payload: data,
       });
     } catch (e) {
       dispatch({
