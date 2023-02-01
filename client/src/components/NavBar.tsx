@@ -1,11 +1,11 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 export const NavBar = () => {
   return (
     <nav
       id="header"
-      className="w-full z-30 top-10 py-1 bg-gradient-to-r from-cyan-500 to-blue-500 shadow-lg border-b border-blue-400"
+      className="w-full z-30 top-10 py-1bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 "
     >
       <div className="w-full flex items-center justify-between mt-0 px-6 py-2">
         <label htmlFor="menu-toggle" className="cursor-pointer md:hidden block">
@@ -55,11 +55,11 @@ export const NavBar = () => {
           id="nav-content"
         >
           <div className="auth flex items-center w-full md:w-full">
-            <button className="bg-transparent text-gray-800  p-2 rounded border border-gray-300 mr-4 hover:bg-gray-100 hover:text-gray-700">
-              Sign in
-            </button>
+            <Link to='/login' className="bg-transparent text-gray-800  p-2 rounded border border-gray-300 mr-4 hover:bg-gray-100 hover:text-gray-700">
+              Войти
+            </Link>
             <button className="bg-blue-600 text-gray-200  p-2 rounded  hover:bg-blue-500 hover:text-gray-100">
-              Sign up
+              Выйти
             </button>
           </div>
         </div>
